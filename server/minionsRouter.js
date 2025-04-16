@@ -54,4 +54,21 @@ router.post('/', (req, res, next) => {
     }
 });
 
+// DELETE request
+router.delete('/:minionId', (req, res, next) => {
+    const id = req.params.minionId;
+
+    if (isNaN(id) === true) {
+        return res.status(404).send('Not a number');
+    }
+
+    const deletedMinion = db.deleteFromDatabasebyId(minions, id);
+
+    if (deletedMinion === false) {
+        return res.status(404).send('Invalid ID');
+    }
+
+    res.status(204).send(deletedMinion);
+});
+
 module.exports = router;
