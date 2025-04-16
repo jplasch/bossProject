@@ -44,4 +44,14 @@ router.put('/:minionId', (req, res, next) => {
     res.send(updatedMinion);
 });
 
+// POST request
+router.post('/', (req, res, next) => {
+    const minion = req.body;
+    const createdMinion = db.addToDatabase(minions, minion);
+
+    if (createdMinion !== undefined) {
+        return res.status(201).send(createdMinion);
+    }
+});
+
 module.exports = router;
