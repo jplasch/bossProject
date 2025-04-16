@@ -42,7 +42,6 @@ router.put('/:minionId', (req, res, next) => {
     }
 
     res.send(updatedMinion);
-
 });
 
 module.exports = router;
