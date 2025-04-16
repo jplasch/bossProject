@@ -9,7 +9,7 @@ const minions = 'minions';
 // GET requests
 router.get('/', (req, res, next) => {
     const allMinions = db.getAllFromDatabase(minions);
-    res.status(200).send(allMinions);
+    res.send(allMinions);
 });
 
 router.get('/:minionId', (req, res, next) => {
