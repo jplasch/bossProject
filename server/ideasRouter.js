@@ -4,3 +4,6 @@ const db = require('./db');
 
 // ideas router
 const router = express.Router();
+
+
+module.exports = router;

@@ -4,3 +4,6 @@ const db = require('./db');
 
 // meetings router
 const router = express.Router();
+
+
+module.exports = router;
