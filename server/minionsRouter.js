@@ -5,6 +5,10 @@ const db = require('./db.js');
 const router = express.Router();
 const minions = 'minions';
 
+// work router
+const workRouter = require('./workRouter.js');
+router.use('/:minionId/work', workRouter);
+
 // GET requests
 router.get('/', (req, res, next) => {
     const allMinions = db.getAllFromDatabase(minions);
