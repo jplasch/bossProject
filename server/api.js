@@ -1,16 +1,16 @@
 const express = require('express');
 const apiRouter = express.Router();
 
-// Mount minionsRouter to apiRouter
+// Import various routers
+const workRouter = require('./workRouter');
 const minionsRouter = require('./minionsRouter');
-apiRouter.use('/minions', minionsRouter);
-
-// Mount ideasRouter to apiRouter
 const ideasRouter = require('./ideasRouter');
-apiRouter.use('/ideas', ideasRouter);
-
-// Mount meetingsRouter to apiRouter
 const meetingsRouter = require('./meetingsRouter');
+
+// Mount various routers
+minionsRouter.use('/work', workRouter);
+apiRouter.use('/minions', minionsRouter);
+apiRouter.use('/ideas', ideasRouter);
 apiRouter.use('/meetings', meetingsRouter);
 
 module.exports = apiRouter;
