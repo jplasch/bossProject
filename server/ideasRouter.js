@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const db = require('./db');
+const db = require('./db.js');
+const checkMillionDollarIdea = require('./checkMillionDollarIdea.js');
 
 // ideas router
 const router = express.Router();
@@ -45,7 +46,7 @@ router.put('/:ideaId', (req, res, next) => {
 });
 
 // POST request
-router.post('/', (req, res, next) => {
+router.post('/', checkMillionDollarIdea, (req, res, next) => {
     const idea = req.body;
     const createdIdea = db.addToDatabase(ideas, idea);
 
